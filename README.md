@@ -1,6 +1,6 @@
 # Strategy RTS Engine
 
-A real-time strategy (RTS) engine. The project demonstrates a modular game architecture with tile-based maps, unit selection, and A* pathfinding.
+A real-time strategy (RTS) engine. A modular game architecture with tile-based maps, unit selection, and A* pathfinding.
 
 Built using:
 
