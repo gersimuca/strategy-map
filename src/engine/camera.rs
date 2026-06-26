@@ -1,4 +1,4 @@
-use egui::Vec2;
+use egui::{Pos2, Vec2};
 
 pub struct Camera {
     pub offset: Vec2,
@@ -13,12 +13,18 @@ impl Camera {
         }
     }
 
-    pub fn world_to_screen(&self, p: egui::Pos2) -> egui::Pos2 {
-        p * self.zoom + self.offset
+    pub fn world_to_screen(&self, p: Pos2) -> Pos2 {
+        Pos2::new(
+            p.x * self.zoom + self.offset.x,
+            p.y * self.zoom + self.offset.y,
+        )
     }
 
-    pub fn screen_to_world(&self, p: egui::Pos2) -> egui::Pos2 {
-        (p.to_vec2() - self.offset) / self.zoom
+    pub fn screen_to_world(&self, p: Pos2) -> Pos2 {
+        Pos2::new(
+            (p.x - self.offset.x) / self.zoom,
+            (p.y - self.offset.y) / self.zoom,
+        )
     }
 
     pub fn pan(&mut self, delta: Vec2) {

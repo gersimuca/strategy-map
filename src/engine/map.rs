@@ -15,7 +15,6 @@ impl Map {
     pub fn new() -> Self {
         let mut tiles = vec![Tile::Grass; (MAP_W * MAP_H) as usize];
 
-        // sample wall
         for x in 10..20 {
             tiles[(15 * MAP_W + x) as usize] = Tile::Wall;
         }
@@ -32,6 +31,7 @@ impl Map {
     }
 
     pub fn walkable(&self, x: i32, y: i32) -> bool {
-        Self::in_bounds(x, y) && self.tiles[Self::idx(x, y)] != Tile::Wall
+        Self::in_bounds(x, y)
+            && self.tiles[Self::idx(x, y)] != Tile::Wall
     }
 }

@@ -1,4 +1,4 @@
-use eframe::egui::{Painter, Rect, Color32, Pos2, Vec2};
+use eframe::egui::{Painter, Rect, Color32, Vec2};
 use crate::engine::Game;
 use crate::engine::map::{MAP_W, MAP_H, Tile};
 use crate::math::tile_center;
@@ -8,7 +8,6 @@ pub fn draw_scene(game: &Game, rect: Rect, painter: Painter) {
 
     let tile_size = 32.0;
 
-    // --- MAP ---
     for y in 0..MAP_H {
         for x in 0..MAP_W {
             let tile = game.map.tiles[crate::engine::map::Map::idx(x, y)];
@@ -19,7 +18,6 @@ pub fn draw_scene(game: &Game, rect: Rect, painter: Painter) {
             };
 
             let center = tile_center((x, y), tile_size);
-
             let screen = game.camera.world_to_screen(center);
 
             painter.rect_filled(
@@ -30,7 +28,6 @@ pub fn draw_scene(game: &Game, rect: Rect, painter: Painter) {
         }
     }
 
-    // --- UNITS ---
     for u in &game.units {
         let center = tile_center((u.x, u.y), tile_size);
         let screen = game.camera.world_to_screen(center);
