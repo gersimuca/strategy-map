@@ -1,5 +1,5 @@
 use std::collections::{BinaryHeap, HashMap};
-use crate::engine::map::{Map, MAP_W, MAP_H};
+use crate::engine::map::Map;
 
 #[derive(Copy, Clone, Eq, PartialEq)]
 struct Node {
@@ -37,16 +37,19 @@ pub fn find_path(map: &Map, start: (i32, i32), goal: (i32, i32)) -> Vec<(i32, i3
         if pos == goal {
             let mut path = vec![goal];
             let mut cur = goal;
+
             while let Some(&p) = came.get(&cur) {
                 path.push(p);
                 cur = p;
             }
+
             path.reverse();
             return path;
         }
 
         for d in dirs {
             let next = (pos.0 + d.0, pos.1 + d.1);
+
             if !map.walkable(next.0, next.1) {
                 continue;
             }

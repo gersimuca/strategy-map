@@ -1,5 +1,5 @@
 use egui::InputState;
-use crate::engine::{Game};
+use crate::engine::Game;
 use crate::engine::selection::select_unit;
 use crate::engine::pathfinding::find_path;
 

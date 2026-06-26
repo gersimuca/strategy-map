@@ -1,5 +1,4 @@
 use crate::engine::map::Map;
-use crate::engine::pathfinding::step_path;
 
 #[derive(Clone)]
 pub struct Unit {

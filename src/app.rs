@@ -22,10 +22,10 @@ impl eframe::App for RtsApp {
 
             self.game.update();
 
-            let (rect, painter) =
+            let (response, painter) =
                 ui.allocate_painter(ui.available_size(), egui::Sense::click_and_drag());
 
-            draw_scene(&self.game, rect, painter);
+            draw_scene(&self.game, response.rect, painter);
         });
 
         ctx.request_repaint();
