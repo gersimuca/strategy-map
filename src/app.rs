@@ -1,9 +1,9 @@
 use eframe::egui;
 use crate::engine::{Game, input::handle_input};
-use crate::rendering::draw_scene;
+use crate::rendering::draw::draw_scene;
 
 pub struct RtsApp {
-    game: Game,
+    pub game: Game,
 }
 
 impl RtsApp {
