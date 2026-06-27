@@ -44,6 +44,7 @@ strategy_rts/
 └── src/
     ├── main.rs
     ├── app.rs
+    ├── math.rs
     ├── engine/
     │   ├── mod.rs
     │   ├── map.rs
@@ -52,11 +53,9 @@ strategy_rts/
     │   ├── input.rs
     │   ├── camera.rs
     │   └── pathfinding.rs
-    ├── rendering/
+    └── rendering/
     │   ├── mod.rs
     │   └── draw.rs
-    └── math/
-        └── mod.rs
 ```
 
 ---
