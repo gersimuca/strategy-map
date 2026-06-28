@@ -10,9 +10,9 @@ pub struct Camera {
 impl Camera {
     pub fn new() -> Self {
         Self {
-            offset: Vec2::new(50.0, 50.0),
+            offset: Vec2::new(80.0, 80.0),
             zoom: 1.5,
-            target_offset: Vec2::new(50.0, 50.0),
+            target_offset: Vec2::new(80.0, 80.0),
             target_zoom: 1.5,
         }
     }
@@ -38,9 +38,7 @@ impl Camera {
 
     pub fn apply_zoom(&mut self, factor: f32, anchor: Option<Pos2>) {
         let old_zoom = self.target_zoom;
-        self.target_zoom = (self.target_zoom * factor).clamp(0.4, 5.0);
-
-        // Zoom toward cursor position
+        self.target_zoom = (self.target_zoom * factor).clamp(0.35, 5.0);
         if let Some(anchor) = anchor {
             let scale = self.target_zoom / old_zoom;
             self.target_offset = Vec2::new(
@@ -51,9 +49,9 @@ impl Camera {
     }
 
     pub fn smooth_update(&mut self, dt: f32) {
-        let speed = (8.0 * dt).clamp(0.0, 1.0);
-        self.zoom += (self.target_zoom - self.zoom) * speed;
-        self.offset.x += (self.target_offset.x - self.offset.x) * speed;
-        self.offset.y += (self.target_offset.y - self.offset.y) * speed;
+        let s = (10.0 * dt).clamp(0.0, 1.0);
+        self.zoom     += (self.target_zoom     - self.zoom)     * s;
+        self.offset.x += (self.target_offset.x - self.offset.x) * s;
+        self.offset.y += (self.target_offset.y - self.offset.y) * s;
     }
 }

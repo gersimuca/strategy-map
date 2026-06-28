@@ -14,3 +14,7 @@ pub fn tile_center(tile: (i32, i32), tile_size: f32) -> Pos2 {
 pub fn world_to_tile(p: Pos2, tile_size: f32) -> (i32, i32) {
     ((p.x / tile_size) as i32, (p.y / tile_size) as i32)
 }
+
+pub fn dist2d(ax: f32, ay: f32, bx: f32, by: f32) -> f32 {
+    ((ax - bx).powi(2) + (ay - by).powi(2)).sqrt()
+}
