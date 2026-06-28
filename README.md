@@ -44,18 +44,24 @@ strategy_rts/
 └── src/
     ├── main.rs
     ├── app.rs
-    ├── math.rs
     ├── engine/
     │   ├── mod.rs
-    │   ├── map.rs
-    │   ├── unit.rs
-    │   ├── selection.rs
-    │   ├── input.rs
     │   ├── camera.rs
-    │   └── pathfinding.rs
+    │   ├── combat.rs
+    │   ├── effects.rs
+    │   ├── enemy.rs
+    │   ├── input.rs
+    │   ├── map.rs
+    │   ├── pathfinding.rs
+    │   ├── projectile.rs
+    │   ├── selection.rs
+    │   └── unit.rs
     └── rendering/
     │   ├── mod.rs
     │   └── draw.rs
+    └── math/
+        └── mod.rs
+
 ```
 
 ---
